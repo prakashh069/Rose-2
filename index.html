@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Hey Hey ✨</title>
-    <link rel="icon" type="img/jpg" href="https://c4.wallpaperflare.com/wallpaper/812/187/770/kimi-no-na-wa-tachibana-taki-miyamizu-mitsuha-anime-wallpaper-preview.jpg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey Hey ✨</title>
+<link rel="icon" type="img/jpg"
+href="https://c4.wallpaperflare.com/wallpaper/812/187/770/kimi-no-na-wa-tachibana-taki-miyamizu-mitsuha-anime-wallpaper-preview.jpg">
 
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  
-<div class="rose">
+
+<!-- ROSE -->
+<div class="rose" id="rose">
   <div class="petal"></div>
   <div class="petal"></div>
   <div class="petal"></div>
@@ -41,35 +44,47 @@
   <div class="petal"></div>
   <div class="petal"></div>
   <div class="petal"></div>
+
   <div class="text">
-      <span>Happy Rose Day ✨</span>
+    <span>Happy Rose Day ✨</span>
   </div>
 </div>
+
 <span id="prompt">Touch the rose</span>
 
-<audio id="rose-song" preload="auto" loop>
-  <source src="song.mp3" type="audio/mp3">
+<!-- DANCING COUPLES (4 CORNERS) -->
+<div class="couple c-top-left">💃🕺</div>
+<div class="couple c-top-right">💃🕺</div>
+<div class="couple c-bottom-left">💃🕺</div>
+<div class="couple c-bottom-right">💃🕺</div>
+
+<!-- AUDIO -->
+<div style="display:none;">
+<audio id="bg-music" loop>
+  <source src="Song.mp3" type="audio/mp3">
 </audio>
+</div>
 
 <h1>By Your one and only Mad head 😌✨</h1>
-<p><a href="https://wa.me/918767506459?text=awesome one ✨" target="_blank">For feedback</a></p>
+<p><a href="https://wa.me/919096846885?text=awesome one ✨" target="_blank">To know the creator</a></p>
 
 <script>
-  const rose = document.querySelector('.rose');
-  const song = document.getElementById('rose-song');
+const rose = document.getElementById("rose");
+const music = document.getElementById("bg-music");
+const couples = document.querySelectorAll(".couple");
 
-  const playSong = async () => {
-    try {
-      await song.play();
-    } catch (error) {
-      // Autoplay is blocked until user gesture; ignore.
-    }
-  };
+let played = false;
 
-  rose.addEventListener('click', playSong, { once: true });
-  rose.addEventListener('touchstart', playSong, { once: true });
+rose.addEventListener("click", function () {
+  if (!played) {
+    music.play().catch(() => {});
+    played = true;
+  }
+
+  // Show and start dancing couples
+  couples.forEach(c => c.classList.add("show"));
+});
 </script>
+
 </body>
-
 </html>
-

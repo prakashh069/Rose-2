@@ -356,3 +356,29 @@ p{
     font-weight: lighter;
     margin-left: -5rem;
 }
+/* -------- COUPLES IN 4 CORNERS -------- */
+.couple {
+  position: fixed;
+  font-size: 3rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Exact positions you circled */
+.c-top-left { top: 20px; left: 20px; }
+.c-top-right { top: 20px; right: 20px; }
+.c-bottom-left { bottom: 20px; left: 20px; }
+.c-bottom-right { bottom: 20px; right: 20px; }
+
+/* Dancing animation */
+@keyframes salsa {
+  0% { transform: translateY(0) rotate(-10deg); }
+  100% { transform: translateY(-12px) rotate(10deg); }
+}
+
+/* When JS adds "show" after touch */
+.couple.show {
+  opacity: 1;
+  animation: salsa 0.8s infinite alternate ease-in-out;
+}
