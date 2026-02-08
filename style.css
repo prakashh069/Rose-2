@@ -299,7 +299,7 @@ p{
   transform: scale(1.8, 1.8) rotate(2490deg);
 }
 
---- END PETAL TRANSITIONS ---
+/* --- END PETAL TRANSITIONS --- */
 
 .rose .text {
   position: absolute;
