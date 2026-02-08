@@ -47,14 +47,28 @@
 </div>
 <span id="prompt">Touch the rose</span>
 
-<div style="display: none;">
-  <audio autoplay="" loop="" controls="">
-    <source src="Song.mp3" type="audio/mp3">
-  </audio>
-</div>
+<audio id="rose-song" preload="auto" loop>
+  <source src="song.mp3" type="audio/mp3">
+</audio>
 
 <h1>By Your one and only Mad head 😌✨</h1>
 <p><a href="https://wa.me/918767506459?text=awesome one ✨" target="_blank">For feedback</a></p>
+
+<script>
+  const rose = document.querySelector('.rose');
+  const song = document.getElementById('rose-song');
+
+  const playSong = async () => {
+    try {
+      await song.play();
+    } catch (error) {
+      // Autoplay is blocked until user gesture; ignore.
+    }
+  };
+
+  rose.addEventListener('click', playSong, { once: true });
+  rose.addEventListener('touchstart', playSong, { once: true });
+</script>
 </body>
 
 </html>
